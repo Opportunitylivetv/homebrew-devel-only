@@ -8,9 +8,9 @@ class ElmFormat < Formula
   head "https://github.com/avh4/elm-format.git"
 
   devel do
-    url "https://github.com/avh4/elm-format/archive/0.4.0-alpha.tar.gz"
-    version "0.4.0-alpha"
-    sha256 "d5998e8f89207205ffe75362c982381800e1e6295e063ae71e4b5e0982068527"
+    url "https://github.com/avh4/elm-format/archive/0.5.2-alpha.tar.gz"
+    version "0.5.2-alpha"
+    sha256 "3bf9d54298333139609a991364a3d8549766cf4462cb25021c65b7f5c5bc0bf3"
   end
 
   depends_on "ghc" => :build
@@ -18,11 +18,6 @@ class ElmFormat < Formula
 
   def install
     (buildpath/"elm-format").install Dir["*"]
-
-    # GHC 8 compat
-    # Fixes: "cabal: Could not resolve dependencies"
-    # Reported 26 May 2016: https://github.com/avh4/elm-format/issues/188
-    (buildpath/"cabal.config").write("allow-newer: aeson,base,transformers\n")
 
     cabal_sandbox do
       cabal_sandbox_add_source "elm-format"
