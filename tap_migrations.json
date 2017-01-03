@@ -1,4 +1,5 @@
 {
+  "elm-format": "homebrew/core",
   "hana": "homebrew/core",
   "juju2": "homebrew/core",
   "rebar3": "homebrew/versions"
